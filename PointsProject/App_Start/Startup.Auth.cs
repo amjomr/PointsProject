@@ -58,11 +58,11 @@ namespace PointsProject
             //   appId: "",
             //   appSecret: "");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "941447562742-s09qip57kg1etk1680d1sdiik47glqjf.apps.googleusercontent.com",
+                ClientSecret = "4YaCevc_228S87nhF3S0k_MY"
+            });
         }
     }
 }
