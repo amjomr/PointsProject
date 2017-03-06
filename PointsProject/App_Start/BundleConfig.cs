@@ -24,7 +24,7 @@ namespace PointsProject
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      "~/Content/bootstrap-lumin.css",
                       "~/Content/site.css"));
         }
     }
