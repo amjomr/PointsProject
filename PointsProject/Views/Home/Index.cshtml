@@ -8,6 +8,77 @@
     <p><a href="http://lcsc.edu" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
 </div>
 
+@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Getting started</h2>
+            <p>
+                Lewis-Clark State College Points System gives the students the ability to collect and spend points
+                based on their activities around the campus.
+            </p>
+            <p><a class="btn btn-default" href="/Home/About">Learn more &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Campus Events</h2>
+            <table style="width:100%">
+                <tr>
+                    <th>Event</th>
+                    <th>Date</th>
+                    <th>Points</th>
+                </tr>
+                <tr>
+                    <td>Warrior tennis game</td>
+                    <td>2/23/2017</td>
+                    <td>200</td>
+                </tr>
+                <tr>
+                    <td>Library</td>
+                    <td>1/12/2017</td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td>Midterm review</td>
+                    <td>21/2/2017</td>
+                    <td>300</td>
+                </tr>
+            </table>
+            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Check your points</h2>
+            
+            <p>
+                <table style="width:100%">
+                    <tr>
+                        <th>Event</th>
+                        <th>Date</th>
+                        <th>Points</th>
+                    </tr>
+                    <tr>
+                        <td>Warrior tennis game</td>
+                        <td>2/23/2017</td>
+                        <td>200</td>
+                    </tr>
+                    <tr>
+                        <td>Library</td>
+                        <td>1/12/2017</td>
+                        <td>100</td>
+                    </tr>
+                    <tr>
+                        <td>Midterm review</td>
+                        <td>21/2/2017</td>
+                        <td>300</td>
+                    </tr>
+                </table>
+            </p>
+        </div>
+    </div>
+}
+
+else
+{
 <div class="row">
     <div class="col-md-4">
         <h2>Getting started</h2>
@@ -19,7 +90,28 @@
     </div>
     <div class="col-md-4">
         <h2>Campus Events</h2>
-        <p>Check your favorite events around the campus.</p>
+        <table style="width:100%">
+            <tr>
+                <th>Event</th>
+                <th>Date</th>
+                <th>Points</th>
+            </tr>
+            <tr>
+                <td>Warrior tennis game</td>
+                <td>2/23/2017</td>
+                <td>200</td>
+            </tr>
+            <tr>
+                <td>Library</td>
+                <td>1/12/2017</td>
+                <td>100</td>
+            </tr>
+            <tr>
+                <td>Midterm review</td>
+                <td>21/2/2017</td>
+                <td>300</td>
+            </tr>
+        </table>
         <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
     </div>
     <div class="col-md-4">
@@ -28,3 +120,4 @@
         <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
     </div>
 </div>
+}
