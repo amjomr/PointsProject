@@ -37,21 +37,18 @@
 @model PointsProject.Models.UpcomingEventsViewModel
 @using CalendarData = Google.Apis.Calendar.v3.Data;
 
-@{
-    ViewBag.Title = "Event";
-}
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+<h2>@ViewBag.Title</h2>
 @helper FormatEventTime(CalendarData.EventDateTime when)
 {
-// Either Date or DateTime is set, depending on whether or not the event is
-// an all-day event.
+    // Either Date or DateTime is set, depending on whether or not the event is
+    // an all-day event.
+
 if (when.DateTime == null)
-{
-    //<text>All day</text>
-}
-else
-{
+    {
+        //<text>All day</text>
+    }
+    else
+    {
         @:@when.DateTime.Value.ToShortTimeString()
     }
 }
