@@ -10,6 +10,12 @@ using System.IO;
 using System.Threading;
 using System.Web.Mvc;
 using System.Web;
+using System.Security.Cryptography.X509Certificates;
+
+
+using Google.Apis.Auth.OAuth2;
+
+using Google.Apis.Services;
 
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
@@ -18,15 +24,18 @@ using Microsoft.Owin.Security;
 using Google.Apis.Auth.OAuth2.Responses;
 using PointsProject.Models;
 using System.Diagnostics;
+using System.Globalization;
+using System.Linq;
 
 namespace PointsProject.Controllers
 {
-    [Authorize]
+    
     public class EventController : Controller
     {
         private readonly IDataStore dataStore = new FileDataStore(GoogleWebAuthorizationBroker.Folder);
         static string[] Scopes = { CalendarService.Scope.CalendarReadonly };
         // this is change for testing git
+        // test number2
 
 
         // GET: /Calendar/UpcomingEvents
@@ -54,38 +63,56 @@ namespace PointsProject.Controllers
                 ApplicationName = "PointsProject",
             };
             var service = new CalendarService(initializer);
+            var eventGroups = new List<CalendarEventGroup>();
             string[] calendarIDs = new string[6] { "0rn5mgclnhc7htmh0ht0cc5pgk@group.calendar.google.com", "l9qpkh5gb7dhjqv8nm0mn098fk@group.calendar.google.com", "d6jbgjhudph2mpef1cguhn4g9g@group.calendar.google.com", "m6h2d5afcjfnmaj8qr7o96q89c@group.calendar.google.com", "gqv0n6j15pppdh0t8adgc1n1ts@group.calendar.google.com", "h4j413d3q0uftb2crk0t92jjlc@group.calendar.google.com" };
             //in order of "Academics", "Student Activities", "Warrior Athletics", "Entertainment", "Residence Life","Campus Rec" 
-            int[] calendarpoints = new int[6] { 700, 600, 500, 400, 300, 200 };
-            EventsResource.ListRequest request = service.Events.List("l9qpkh5gb7dhjqv8nm0mn098fk@group.calendar.google.com");
-            request.TimeMin = DateTime.Now;
-            request.ShowDeleted = false;
-            request.SingleEvents = true;
-            request.MaxResults = 10;
-            request.OrderBy = EventsResource.ListRequest.OrderByEnum.StartTime;
-            Events events = request.Execute();
-            var eventGroups = new List<CalendarEventGroup>();
-            if (events.Items != null && events.Items.Count > 0)
+            string[] calidentity = new string[6] { "Academics", "Student Activities", "Warrior Athletics", "Entertainment", "Residence Life", "Campus Rec" };
+            string[] calendarpoints = new string[6] { "700points", "600point", "500points", "400points", "300points", "200points" };
+            for (int i = 0; i < calendarIDs.Length; i++)
             {
-                foreach (var eventItem in events.Items)
+                EventsResource.ListRequest request = service.Events.List(calendarIDs[i]);
+                request.TimeMin = DateTime.Now;
+                request.ShowDeleted = false;
+                request.SingleEvents = true;
+                //request.MaxResults = 10;
+                request.OrderBy = EventsResource.ListRequest.OrderByEnum.StartTime;
+                Events events = request.Execute();
+
+                if (events.Items != null && events.Items.Count > 0)
                 {
-                    string when = eventItem.Start.DateTime.ToString();
-                    string allsum = eventItem.Summary.ToString();
-
-                    if (String.IsNullOrEmpty(when))
+                    foreach (var eventItem in events.Items)
                     {
-                        when = eventItem.Start.Date;
+
+                        string when = eventItem.Start.DateTime.ToString();
+                        string allsum = eventItem.Summary.ToString();
+                        string htmlink = eventItem.HtmlLink;
+                        DateTime actualschedule;
+                        if (String.IsNullOrEmpty(when))
+                        {
+                            when = eventItem.Start.Date;
+                            actualschedule = Convert.ToDateTime(when);
+                        }
+                        else
+                        {
+                            actualschedule = Convert.ToDateTime(when);
+                        }
+
+
+                        eventGroups.Add(new CalendarEventGroup
+                        {
+
+                            Events = allsum,
+                            startdate = actualschedule,
+                            points = calendarpoints[i],
+                            fromcalendar = calidentity[i],
+                            thelink = htmlink,
+
+                        });
+
                     }
-                    eventGroups.Add(new CalendarEventGroup
-                    {
-                        GroupTitle = when,
-                        Events = allsum,
-                    });
-
                 }
             }
-
-
+            eventGroups.Sort((x, y) => x.startdate.CompareTo(y.startdate));
             model.EventGroups = eventGroups;
             return View(model);
 

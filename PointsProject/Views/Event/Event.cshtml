@@ -72,23 +72,15 @@ else
 <h2>Upcoming Events</h2>
 
 <table class="table">
-    <thead>
-        <tr>
-            <th>Time</th>
-            <th>Length</th>
-            <th>Summary</th>
-        </tr>
-    </thead>
-
     @foreach (var group in Model.EventGroups)
     {
         <tbody>
-            <tr><th colspan="4">@group.GroupTitle</th></tr>
-            <tr><th colspan="4">@group.Events</th></tr>
-            }
+            <tr><th colspan="6" align="right"><i><a href="@group.thelink">@group.Events</a></i></th></tr>
+            <tr><th colspan="4" style="margin:200px">   @group.fromcalendar</th></tr>
+            <tr><th colspan="4">   @group.startdate</th></tr>
+            <tr><th colspan="4">   @group.points</th></tr>
+            
         </tbody>
     }
 
 </table>
-Contact GitHub API Training Shop Blog About
-© 2017 GitHub, Inc. Terms Privacy Security Status Help
