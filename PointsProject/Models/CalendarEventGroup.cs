@@ -24,5 +24,13 @@ namespace PointsProject.Models
         /// </summary>
         [Required]
         public string Events { get; set; }
+
+        public DateTime startdate { get; set; }
+
+        public string points { get; set; }
+
+        public string fromcalendar { get; set;}
+
+        public string thelink { get; set; }
     }
 }
