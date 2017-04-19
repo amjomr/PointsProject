@@ -21,7 +21,7 @@ using System.Diagnostics;
 
 namespace PointsProject.Controllers
 {
-    [Authorize]
+ //   [Authorize]
     public class EventController : Controller
     {
         private readonly IDataStore dataStore = new FileDataStore(GoogleWebAuthorizationBroker.Folder);
