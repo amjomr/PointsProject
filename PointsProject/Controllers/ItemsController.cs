@@ -14,10 +14,53 @@ namespace PointsProject.Controllers
     {
         private ItemDBContext db = new ItemDBContext();
 
+        [NonAction]
+        public List<Item> GetItemList(){
+            return new List<Item>{
+                new Item
+                {
+                    ItemID = 1,
+                    ItemName = "Wii",
+                    ExpireDate = DateTime.Parse(DateTime.Today.ToString()),
+                    HighestBid = 700
+                },
+
+                new Item
+                {
+                    ItemID = 2,
+                    ItemName = "PS4",
+                    ExpireDate = DateTime.Parse(DateTime.Today.ToString()),
+                    HighestBid = 550
+                },
+
+                new Item
+                {
+                    ItemID = 3,
+                    ItemName = "IPhone 7",
+                    ExpireDate = DateTime.Parse(DateTime.Today.ToString()),
+                    HighestBid = 900
+                },
+
+                new Item
+                {
+                    ItemID = 4,
+                    ItemName = "Laptop",
+                    ExpireDate = DateTime.Parse(DateTime.Today.ToString()),
+                    HighestBid = 650
+                },
+
+            };
+
+        }
+
         // GET: Items
         public ActionResult Index()
         {
-            return View(db.Item.ToList());
+            var item = from e in GetItemList()
+                       orderby e.ItemID
+                       select e;
+            return View(item);
+            //return View(db.Item.ToList());
         }
 
         // GET: Items/Details/5
