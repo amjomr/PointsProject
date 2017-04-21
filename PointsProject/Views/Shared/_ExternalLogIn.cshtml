@@ -1,5 +1,5 @@
 ﻿@model PointsProject.Models.ExternalLoginListViewModel
-@using PointsProjct.Web.Models
+
 @using Microsoft.Owin.Security
 @{
     var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes();
@@ -17,7 +17,7 @@
                             <button type="submit" class="btn btn-block btn-social btn-gplus" name="provider"
                                     id="@provider.AuthenticationType"
                                     value="@provider.AuthenticationType"
-                                    style="width:100%;text-align:left;border-radius:0px;color:white"></button>
+                                    style="color: white;width:80px;text-align:left;border-radius:10px;background-color:rgba(0,0,0,0.01);padding-top:15px;">Sign In</button>
                         </div>
                     </li>
                     }

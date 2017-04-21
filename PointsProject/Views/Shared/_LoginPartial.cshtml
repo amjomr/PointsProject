@@ -1,5 +1,6 @@
 ﻿
 @using Microsoft.AspNet.Identity
+@using PointsProject.Models
 
 @if (Request.IsAuthenticated)
 {
@@ -19,10 +20,11 @@ else
 {
       <ul class="nav navbar-nav navbar-right">
         @*  <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>*@
-         <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+         <li>@Html.Partial("_ExternalLogIn", new ExternalLoginListViewModel())</li>
+         @*<li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>*@
      </ul>
 
-   // <ul class="nav navbar-nav navbar-right">
-     //   @Html.Partial("_ExternalLogIn", new ExternalLoginListViewModel())
-  //  </ul>
+    //<ul class="nav navbar-nav navbar-right">
+      //@Html.Partial("_ExternalLogIn", new ExternalLoginListViewModel())
+    //</ul>
 }

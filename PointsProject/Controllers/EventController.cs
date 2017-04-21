@@ -68,6 +68,9 @@ namespace PointsProject.Controllers
             //in order of "Academics", "Student Activities", "Warrior Athletics", "Entertainment", "Residence Life","Campus Rec" 
             string[] calidentity = new string[6] { "Academics", "Student Activities", "Warrior Athletics", "Entertainment", "Residence Life", "Campus Rec" };
             string[] calendarpoints = new string[6] { "700points", "600point", "500points", "400points", "300points", "200points" };
+            //this calendarpoints are string because I was lazy enough to do some work on Event.cshtml file.
+            //if we want to change back to int, then we need to change to int[]  new int[6],
+            // and go to CalendarEventGroup.cs in the model, change "public string points" to "public int points"
             for (int i = 0; i < calendarIDs.Length; i++)
             {
                 EventsResource.ListRequest request = service.Events.List(calendarIDs[i]);
