@@ -1,4 +1,6 @@
-﻿@{
+﻿@model PointsProject.Models.UpcomingEventsViewModel
+
+@{
     ViewBag.Title = "Home Page";
 }
 
@@ -11,7 +13,8 @@
     <p><a href="http://lcsc.edu" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
 </div>
 
-@using Microsoft.AspNet.Identity
+
+
 @if (Request.IsAuthenticated)
 {
     <div class="row">
@@ -26,27 +29,18 @@
         <div class="col-md-4">
             <h2>Campus Events</h2>
             <table style="width:100%">
+                @*I was not able to find the right css that matches with all the other fonts, but its close
+    instead of adding to actual css file, I recommend changing on the styles like what I did below*@
+                @foreach (var group in Model.EventGroups)
+                {
                 <tr>
-                    <th>Event</th>
-                    <th>Date</th>
-                    <th>Points</th>
+                    <th colspan="2" style="font-size:14px;font-weight:normal;"><i>@group.Events</i></th>
+                    <th colspan="2" style="font-size:14px;font-weight:normal;">@group.startdate</th>
+                    <th colspan="2" style="font-size:14px;font-weight:normal;">@group.points</th>
                 </tr>
-                <tr>
-                    <td>Warrior tennis game</td>
-                    <td>2/23/2017</td>
-                    <td>200</td>
-                </tr>
-                <tr>
-                    <td>Library</td>
-                    <td>1/12/2017</td>
-                    <td>100</td>
-                </tr>
-                <tr>
-                    <td>Midterm review</td>
-                    <td>21/2/2017</td>
-                    <td>300</td>
-                </tr>
-            </table>
+                }
+                    
+</table>
             <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
         </div>
         <div class="col-md-4">
@@ -54,26 +48,16 @@
             
             <p>
                 <table style="width:100%">
-                    <tr>
-                        <th>Event</th>
-                        <th>Date</th>
-                        <th>Points</th>
-                    </tr>
-                    <tr>
-                        <td>Warrior tennis game</td>
-                        <td>2/23/2017</td>
-                        <td>200</td>
-                    </tr>
-                    <tr>
-                        <td>Library</td>
-                        <td>1/12/2017</td>
-                        <td>100</td>
-                    </tr>
-                    <tr>
-                        <td>Midterm review</td>
-                        <td>21/2/2017</td>
-                        <td>300</td>
-                    </tr>
+                     
+                    @foreach (var group in Model.EventGroups)
+                {
+                        <tr>
+                            <th colspan="2" style="font-size:14px;font-weight:normal;"><i>@group.Events</i></th>
+                            <th colspan="2" style="font-size:14px;font-weight:normal;">@group.startdate</th>
+                            <th colspan="2" style="font-size:14px;font-weight:normal;">@group.points</th>
+                        </tr>
+                    }
+                    
                 </table>
             </p>
         </div>
@@ -93,27 +77,18 @@ else
     </div>
     <div class="col-md-4">
         <h2>Campus Events</h2>
+        <p>@ViewData["threeEvents"]</p>
         <table style="width:100%">
-            <tr>
-                <th>Event</th>
-                <th>Date</th>
-                <th>Points</th>
-            </tr>
-            <tr>
-                <td>Warrior tennis game</td>
-                <td>2/23/2017</td>
-                <td>200</td>
-            </tr>
-            <tr>
-                <td>Library</td>
-                <td>1/12/2017</td>
-                <td>100</td>
-            </tr>
-            <tr>
-                <td>Midterm review</td>
-                <td>21/2/2017</td>
-                <td>300</td>
-            </tr>
+            
+            @foreach (var group in Model.EventGroups)
+                {
+                <tr>
+                    <th colspan="2" style="font-size:14px;font-weight:normal;"><i>@group.Events</i></th>
+                    <th colspan="2" style="font-size:14px;font-weight:normal;">@group.startdate</th>
+                    <th colspan="2" style="font-size:14px;font-weight:normal;">@group.points</th>
+                </tr>
+            }
+            
         </table>
         <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
     </div>
