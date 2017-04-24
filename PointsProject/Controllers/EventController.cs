@@ -13,9 +13,6 @@ using System.Web;
 using System.Security.Cryptography.X509Certificates;
 
 
-using Google.Apis.Auth.OAuth2;
-
-using Google.Apis.Services;
 
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
