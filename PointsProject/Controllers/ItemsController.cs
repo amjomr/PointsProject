@@ -21,7 +21,7 @@ namespace PointsProject.Controllers
                 {
                     ItemID = 1,
                     ItemName = "Wii",
-                    ExpireDate = DateTime.Parse(DateTime.Today.ToString()),
+                    EndDate = DateTime.Parse(DateTime.Today.ToString()),
                     HighestBid = 700
                 },
 
@@ -29,7 +29,7 @@ namespace PointsProject.Controllers
                 {
                     ItemID = 2,
                     ItemName = "PS4",
-                    ExpireDate = DateTime.Parse(DateTime.Today.ToString()),
+                    EndDate = DateTime.Parse(DateTime.Today.ToString()),
                     HighestBid = 550
                 },
 
@@ -37,7 +37,7 @@ namespace PointsProject.Controllers
                 {
                     ItemID = 3,
                     ItemName = "IPhone 7",
-                    ExpireDate = DateTime.Parse(DateTime.Today.ToString()),
+                    EndDate = DateTime.Parse(DateTime.Today.ToString()),
                     HighestBid = 900
                 },
 
@@ -45,7 +45,7 @@ namespace PointsProject.Controllers
                 {
                     ItemID = 4,
                     ItemName = "Laptop",
-                    ExpireDate = DateTime.Parse(DateTime.Today.ToString()),
+                    EndDate = DateTime.Parse(DateTime.Today.ToString()),
                     HighestBid = 650
                 },
 
