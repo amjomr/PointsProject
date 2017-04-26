@@ -13,7 +13,6 @@ using System.Web;
 using System.Security.Cryptography.X509Certificates;
 
 
-
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 
@@ -41,7 +40,7 @@ namespace PointsProject.Controllers
 
 
             var model = new UpcomingEventsViewModel();
-
+            var folder = System.Web.HttpContext.Current.Server.MapPath("/App_Data/MyGoogleStorage");
             UserCredential credential;
             var path = Server.MapPath("~/App_Data/client_secret.json");
             using (var stream = new FileStream(path, FileMode.Open, FileAccess.Read))
@@ -51,7 +50,7 @@ namespace PointsProject.Controllers
                 Scopes,
                 "LookIAmAUniqueUser",
                 CancellationToken.None,
-                new FileDataStore("Drive.Auth.Store")).Result;
+                new FileDataStore(folder)).Result;
             }
 
             var initializer = new BaseClientService.Initializer()
