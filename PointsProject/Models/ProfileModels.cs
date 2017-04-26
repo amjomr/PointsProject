@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data.Entity;
+using System.ComponentModel.DataAnnotations;
+
 
 namespace PointsProject.Models
 {
     public class ProfileModels
     {
         //Info about them (Table: Points)
+        [Key]
         public string email { get; set; }
         public int totalPoints { get; set; }
         public int availablePoints { get; set; }
@@ -20,7 +24,6 @@ namespace PointsProject.Models
         //Displaying what they have purchased (Table: purchases)
         public string item { get; set; }
         public int pointsSpent { get; set; }
-
 
     }
 }
