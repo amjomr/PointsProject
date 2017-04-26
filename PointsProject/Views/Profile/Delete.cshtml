@@ -1,0 +1,81 @@
+﻿@model PointsProject.Models.ProfileModels
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ProfileModels</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.totalPoints)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.totalPoints)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.availablePoints)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.availablePoints)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.period)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.period)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.item)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.item)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pointsSpent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pointsSpent)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,75 @@
+﻿@model PointsProject.Models.ProfileModels
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ProfileModels</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.totalPoints)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.totalPoints)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.availablePoints)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.availablePoints)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.period)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.period)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.item)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.item)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pointsSpent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pointsSpent)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.email }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

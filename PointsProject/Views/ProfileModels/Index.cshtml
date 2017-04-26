@@ -1,0 +1,70 @@
+﻿@model IEnumerable<PointsProject.Models.ProfileModels>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.totalPoints)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.availablePoints)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.period)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.item)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pointsSpent)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.totalPoints)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.availablePoints)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.location)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.period)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.item)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pointsSpent)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.email }) |
+            @Html.ActionLink("Details", "Details", new { id=item.email }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.email })
+        </td>
+    </tr>
+}
+
+</table>

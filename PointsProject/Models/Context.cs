@@ -10,6 +10,7 @@ namespace PointsProject.Models
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Auction> Auctions { get; set; }
+        public DbSet<ProfileModels> Profiles { get; set; }
 
         static Context()
         {
@@ -20,5 +21,7 @@ namespace PointsProject.Models
             : base("Server=localhost;Initial Catalog=Test;Integrated Security=True;")
         {
         }
+
+        public System.Data.Entity.DbSet<PointsProject.Models.ProfileModels> ProfileModels { get; set; }
     }
 }
