@@ -13,7 +13,6 @@ using System.Web;
 using System.Security.Cryptography.X509Certificates;
 
 
-
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 
