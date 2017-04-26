@@ -9,7 +9,7 @@ namespace PointsProject.Models
     public class Item{
         public int ItemID { get; set; }
         public string ItemName { get; set; }
-        public DateTime ExpireDate { get; set; }
+        public DateTime EndDate { get; set; }
         public int HighestBid { get; set; }
 
     }
