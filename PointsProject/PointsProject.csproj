@@ -358,6 +358,11 @@
     <Content Include="Views\Items\Edit.cshtml" />
     <Content Include="Views\Items\Index.cshtml" />
     <Content Include="Views\Auction\AuctionItem.cshtml" />
+    <Content Include="Views\ProfileModels\Create.cshtml" />
+    <Content Include="Views\ProfileModels\Delete.cshtml" />
+    <Content Include="Views\ProfileModels\Details.cshtml" />
+    <Content Include="Views\ProfileModels\Edit.cshtml" />
+    <Content Include="Views\ProfileModels\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201704260802506_intialcreate.resx">
