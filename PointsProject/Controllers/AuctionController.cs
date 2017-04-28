@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using PointsProject.Models;
 
 namespace PointsProject.Controllers
-{
+{   [Authorize]
     public class AuctionController : Controller
     {
         private Auction db = new Auction();

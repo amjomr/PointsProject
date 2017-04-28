@@ -24,6 +24,8 @@ namespace PointsProject.Controllers
         {
             UserManager = userManager;
             SignInManager = signInManager;
+            TempData["userManager"] = userManager;
+            TempData["signManager"] = signInManager;
         }
 
         public ApplicationSignInManager SignInManager
