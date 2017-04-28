@@ -290,7 +290,6 @@
     <Content Include="Areas\Admin\Views\Auction\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Auction\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Auction\Index.cshtml" />
-    <Content Include="Content\MyGoogleStorage\Google.Apis.Auth.OAuth2.Responses.TokenResponse-LookIAmAUniqueUser" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -372,6 +371,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Content\MyGoogleStorage\" />
     <Folder Include="Views\Auction\" />
   </ItemGroup>
   <PropertyGroup>

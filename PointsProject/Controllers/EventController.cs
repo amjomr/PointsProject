@@ -50,7 +50,7 @@ namespace PointsProject.Controllers
                 Scopes,
                 "LookIAmAUniqueUser",
                 CancellationToken.None,
-                new FileDataStore(folder)).Result;
+                new FileDataStore(folder, true)).Result;
             }
 
             var initializer = new BaseClientService.Initializer()
