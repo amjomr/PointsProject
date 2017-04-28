@@ -33,7 +33,7 @@ namespace PointsProject.Controllers
                 return HttpNotFound();
             }
 
-            var 
+            
             return View(profileModels);
         }
 

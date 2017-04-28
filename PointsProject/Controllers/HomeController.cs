@@ -22,7 +22,7 @@ namespace PointsProject.Controllers
         public ActionResult Index()
         {
             var model = new UpcomingEventsViewModel();
-
+            var folder = System.Web.HttpContext.Current.Server.MapPath("~/Content/MyGoogleStorage");
             UserCredential credential;
             var path = Server.MapPath("~/App_Data/client_secret.json");
             using (var stream = new FileStream(path, FileMode.Open, FileAccess.Read))
@@ -32,7 +32,7 @@ namespace PointsProject.Controllers
                 Scopes,
                 "LookIAmAUniqueUser",
                 CancellationToken.None,
-                new FileDataStore("Drive.Auth.Store")).Result;
+                new FileDataStore(folder)).Result;
             }
 
             var initializer = new BaseClientService.Initializer()

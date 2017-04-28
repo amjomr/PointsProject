@@ -290,6 +290,7 @@
     <Content Include="Areas\Admin\Views\Auction\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Auction\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Auction\Index.cshtml" />
+    <Content Include="Content\MyGoogleStorage\Google.Apis.Auth.OAuth2.Responses.TokenResponse-LookIAmAUniqueUser" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -357,16 +358,6 @@
     <Content Include="Views\Items\Details.cshtml" />
     <Content Include="Views\Items\Edit.cshtml" />
     <Content Include="Views\Items\Index.cshtml" />
-    <Content Include="Views\ProfileModels\Create.cshtml" />
-    <Content Include="Views\ProfileModels\Delete.cshtml" />
-    <Content Include="Views\ProfileModels\Details.cshtml" />
-    <Content Include="Views\ProfileModels\Edit.cshtml" />
-    <Content Include="Views\ProfileModels\Index.cshtml" />
-    <Content Include="Views\Profile\Create.cshtml" />
-    <Content Include="Views\Profile\Delete.cshtml" />
-    <Content Include="Views\Profile\Details.cshtml" />
-    <Content Include="Views\Profile\Edit.cshtml" />
-    <Content Include="Views\Profile\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201704260802506_intialcreate.resx">

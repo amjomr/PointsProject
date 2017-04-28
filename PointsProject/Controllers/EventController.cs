@@ -40,7 +40,7 @@ namespace PointsProject.Controllers
 
 
             var model = new UpcomingEventsViewModel();
-            var folder = System.Web.HttpContext.Current.Server.MapPath("/App_Data/MyGoogleStorage");
+            var folder = System.Web.HttpContext.Current.Server.MapPath("~/Content/MyGoogleStorage");
             UserCredential credential;
             var path = Server.MapPath("~/App_Data/client_secret.json");
             using (var stream = new FileStream(path, FileMode.Open, FileAccess.Read))
