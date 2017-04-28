@@ -59,6 +59,8 @@ namespace PointsProject.Controllers
                 request.OrderBy = EventsResource.ListRequest.OrderByEnum.StartTime;
                 Events events = request.Execute();
 
+                // chng
+
                 if (events.Items != null && events.Items.Count > 0)
                 {
                     foreach (var eventItem in events.Items)
