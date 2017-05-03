@@ -18,7 +18,13 @@ namespace PointsProject.Controllers
         public ActionResult Index()
         {
             var email = (string)Session["email"];
-            return View(db.ProfileModels.ToList());
+            string query = "SELECT DATE, LOCATION, PERIOD"
+               + "FROM CHECKINS "
+               + "WHERE EMAIL = '" + email + "'";
+            IEnumerable<ProfileModels> data = db.Database.SqlQuery<ProfileModels>(query);
+            return View(data.ToList());
+            //return View(db.ProfileModels.ToList());
+            
         }
 
         // GET: Profile/Details/5
