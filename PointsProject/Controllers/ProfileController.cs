@@ -18,10 +18,19 @@ namespace PointsProject.Controllers
         public ActionResult Index()
         {
             var email = (string)Session["email"];
-            string query = "SELECT DATE, LOCATION, PERIOD"
+            string queryCheckIN = "SELECT DATE, LOCATION, PERIOD"
                + "FROM CHECKINS "
                + "WHERE EMAIL = '" + email + "'";
-            IEnumerable<ProfileModels> data = db.Database.SqlQuery<ProfileModels>(query);
+            string queryInfo = "SELECT EMAIL, TOTAL_POINTS"
+               + "FROM POINTS "
+               + "WHERE EMAIL = '" + email + "'";
+            string queryPurchases = "SELECT ITEMS, POINTS_SPENT"
+               + "FROM PURCHASES "
+               + "WHERE EMAIL = '" + email + "'";
+
+            IEnumerable<ProfileModels> data = db.Database.SqlQuery<ProfileModels>(queryInfo);
+            IEnumerable<ProfileModels> data1 = db.Database.SqlQuery<ProfileModels>(queryCheckIN);
+            IEnumerable<ProfileModels> data2 = db.Database.SqlQuery<ProfileModels>(queryPurchases);
             return View(data.ToList());
             //return View(db.ProfileModels.ToList());
             
