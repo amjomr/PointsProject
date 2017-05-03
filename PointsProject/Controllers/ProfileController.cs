@@ -17,6 +17,7 @@ namespace PointsProject.Controllers
         // GET: Profile
         public ActionResult Index()
         {
+            var email = (string)Session["email"];
             return View(db.ProfileModels.ToList());
         }
 
