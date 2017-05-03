@@ -17,15 +17,9 @@ namespace PointsProject.Controllers
         // GET: Profile
         public ActionResult Index()
         {
-            string query = "SELECT DATE, LOCATION, PERIOD"
-               + "FROM CHECKINS "
-               + "WHERE EMAIL = '"+ email_variable + "'";
-            IEnumerable<ProfileModels> data = db.Database.SqlQuery<ProfileModels>(query);
-            return View(data.ToList());
-            //return View(db.ProfileModels.ToList());
+            var email = (string)Session["email"];
+            return View(db.ProfileModels.ToList());
         }
-
-  
 
         // GET: Profile/Details/5
         public ActionResult Details(string id)
@@ -34,7 +28,6 @@ namespace PointsProject.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            
             ProfileModels profileModels = db.ProfileModels.Find(id);
             if (profileModels == null)
             {

@@ -334,10 +334,12 @@ namespace PointsProject.Controllers
                 var emailClaim = externalIdentity.Result.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email);
                 var lastNameClaim = externalIdentity.Result.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Surname);
                 var givenNameClaim = externalIdentity.Result.Claims.FirstOrDefault(c => c.Type == ClaimTypes.GivenName);
-
                 var email = emailClaim.Value;
                 var firstName = givenNameClaim.Value;
-                var lastname = lastNameClaim.Value;
+                var lastName = lastNameClaim.Value;
+                Session["email"] = email;
+                Session["firstName"] = firstName;
+                Session["lastName"] = lastName;
             }
 
             // Sign in the user with this external login provider if the user already has a login
