@@ -31,6 +31,10 @@ namespace PointsProject.Controllers
             IEnumerable<ProfileModels> data = db.Database.SqlQuery<ProfileModels>(queryInfo);
             IEnumerable<ProfileModels> data1 = db.Database.SqlQuery<ProfileModels>(queryCheckIN);
             IEnumerable<ProfileModels> data2 = db.Database.SqlQuery<ProfileModels>(queryPurchases);
+
+
+
+
             return View(data.ToList());
             //return View(db.ProfileModels.ToList());
             

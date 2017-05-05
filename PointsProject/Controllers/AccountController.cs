@@ -5,6 +5,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.SqlClient;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
@@ -347,6 +348,8 @@ namespace PointsProject.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
+                    var email = (string)Session["email"];
+                    SqlCommand check_User_Name = new SqlCommand("SELECT");
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");

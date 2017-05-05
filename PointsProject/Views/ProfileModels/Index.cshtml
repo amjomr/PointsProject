@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<PointsProject.Models.ProfileModels>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "My Profile";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -59,11 +59,11 @@
         <td>
             @Html.DisplayFor(modelItem => item.pointsSpent)
         </td>
-        <td>
+        <!--<td>
             @Html.ActionLink("Edit", "Edit", new { id=item.email }) |
             @Html.ActionLink("Details", "Details", new { id=item.email }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.email })
-        </td>
+        </td>-->
     </tr>
 }
 
