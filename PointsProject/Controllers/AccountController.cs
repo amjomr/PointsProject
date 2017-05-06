@@ -5,6 +5,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.SqlClient;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
@@ -334,10 +335,12 @@ namespace PointsProject.Controllers
                 var emailClaim = externalIdentity.Result.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email);
                 var lastNameClaim = externalIdentity.Result.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Surname);
                 var givenNameClaim = externalIdentity.Result.Claims.FirstOrDefault(c => c.Type == ClaimTypes.GivenName);
-
                 var email = emailClaim.Value;
                 var firstName = givenNameClaim.Value;
-                var lastname = lastNameClaim.Value;
+                var lastName = lastNameClaim.Value;
+                Session["email"] = email;
+                Session["firstName"] = firstName;
+                Session["lastName"] = lastName;
             }
 
             // Sign in the user with this external login provider if the user already has a login
@@ -345,6 +348,8 @@ namespace PointsProject.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
+                    var email = (string)Session["email"];
+                    SqlCommand check_User_Name = new SqlCommand("SELECT");
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
