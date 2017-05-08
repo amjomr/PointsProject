@@ -28,17 +28,16 @@ namespace PointsProject.Controllers
             using (var stream = new FileStream(path, FileMode.Open, FileAccess.Read))
             {
                 credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
-                GoogleClientSecrets.Load(stream).Secrets,
-                Scopes,
-                "LookIAmAUniqueUser",
-                CancellationToken.None,
-                new FileDataStore(folder, true)).Result;
+                    GoogleClientSecrets.Load(stream).Secrets,
+                    new[] { CalendarService.Scope.CalendarReadonly },
+                    "user", CancellationToken.None,
+                    new FileDataStore(folder)).Result;
             }
 
             var initializer = new BaseClientService.Initializer()
             {
                 HttpClientInitializer = credential,
-                ApplicationName = "PointsProject",
+                ApplicationName = "lcsc-points-system",
             };
             var service = new CalendarService(initializer);
             var eventGroups = new List<CalendarEventGroup>();

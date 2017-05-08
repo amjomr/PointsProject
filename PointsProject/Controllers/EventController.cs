@@ -55,7 +55,7 @@ namespace PointsProject.Controllers
             var initializer = new BaseClientService.Initializer()
             {
                 HttpClientInitializer = credential,
-                ApplicationName = "PointsProject2",
+                ApplicationName = "lcsc-points-system",
             };
             var service = new CalendarService(initializer);
             var eventGroups = new List<CalendarEventGroup>();
