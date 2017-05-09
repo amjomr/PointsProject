@@ -8,9 +8,9 @@ namespace PointsProject.Models
 {
     public class Context : DbContext
     {
-        public DbSet<User> Users { get; set; }
+        //public DbSet<User> Users { get; set; }
         public DbSet<Auction> Auctions { get; set; }
-        public DbSet<ProfileModels> Profiles { get; set; }
+        //public DbSet<ProfileModels> Profiles { get; set; }
 
         static Context()
         {
@@ -22,6 +22,6 @@ namespace PointsProject.Models
         {
         }
 
-        public System.Data.Entity.DbSet<PointsProject.Models.ProfileModels> ProfileModels { get; set; }
+        //public System.Data.Entity.DbSet<PointsProject.Models.ProfileModels> ProfileModels { get; set; }
     }
 }
