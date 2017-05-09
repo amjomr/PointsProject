@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
+using System;
 
 namespace PointsProject.Models
 {
@@ -12,6 +13,24 @@ namespace PointsProject.Models
         public string PhoneNumber { get; set; }
         public bool TwoFactor { get; set; }
         public bool BrowserRemembered { get; set; }
+    }
+
+    public class ProfileInfo
+    {
+        //Info about them (Table: Points)
+        [Key]
+        public string email { get; set; }
+        public int totalPoints { get; set; }
+        public int availablePoints { get; set; }
+
+        //where they have been or where they have swiped their card (Table: checkins)
+        public DateTime date { get; set; }
+        public string location { get; set; }
+        public float period { get; set; }
+
+        //Displaying what they have purchased (Table: purchases)
+        public string item { get; set; }
+        public int pointsSpent { get; set; }
     }
 
     public class ManageLoginsViewModel
