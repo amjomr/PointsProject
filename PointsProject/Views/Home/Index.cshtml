@@ -31,7 +31,9 @@
             <table style="width:100%">
                 @*I was not able to find the right css that matches with all the other fonts, but its close
     instead of adding to actual css file, I recommend changing on the styles like what I did below*@
-                @foreach (var group in Model.EventGroups)
+
+                @*Limiting foreach to 3 events - Amjad*@
+                @foreach (var group in Model.EventGroups.Take(3))
                 {
                 <tr>
                     <th colspan="2" style="font-size:14px;font-weight:normal;"><i>@group.Events</i></th>
@@ -45,12 +47,8 @@
         </div>
         <div class="col-md-4">
             <h2>Check your points</h2>
-            
-            <p>
-                <table style="width:100%">
-                    
-                </table>
-            </p>
+            <p>You can easily check your point by log in to your account.</p>
+            <p><a class="btn btn-default" href="/Manage/">Learn more &raquo;</a></p>
         </div>
     </div>
 }
@@ -70,8 +68,8 @@ else
         <h2>Campus Events</h2>
         
         <table style="width:100%">
-            
-            @foreach (var group in Model.EventGroups)
+          @*Limiting foreach to 3 events - Amjad*@
+        @foreach (var group in Model.EventGroups.Take(3))
                 {
                 <tr>
                     <th colspan="2" style="font-size:14px;font-weight:normal;"><i>@group.Events</i></th>
@@ -86,7 +84,7 @@ else
     <div class="col-md-4">
         <h2>Check your points</h2>
         <p>You can easily check your point by log in to your account.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        <p><a class="btn btn-default" href="/Manage/">Learn more &raquo;</a></p>
     </div>
 </div>
 }
