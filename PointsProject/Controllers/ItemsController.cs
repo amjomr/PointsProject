@@ -22,7 +22,7 @@ namespace PointsProject.Controllers
                     ItemID = 1,
                     ItemName = "Wii",
                     EndDate = DateTime.Parse(DateTime.Today.ToString()),
-                    HighestBid = 700
+                    HighestBid = 100000
                 },
 
                 new Item
@@ -30,23 +30,23 @@ namespace PointsProject.Controllers
                     ItemID = 2,
                     ItemName = "PS4",
                     EndDate = DateTime.Parse(DateTime.Today.ToString()),
-                    HighestBid = 550
+                    HighestBid = 110000
                 },
 
                 new Item
                 {
                     ItemID = 3,
-                    ItemName = "IPhone 7",
+                    ItemName = "XBox",
                     EndDate = DateTime.Parse(DateTime.Today.ToString()),
-                    HighestBid = 900
+                    HighestBid = 120000
                 },
 
                 new Item
                 {
                     ItemID = 4,
-                    ItemName = "Laptop",
+                    ItemName = "Hydro Flask",
                     EndDate = DateTime.Parse(DateTime.Today.ToString()),
-                    HighestBid = 650
+                    HighestBid = 30000
                 },
 
             };
