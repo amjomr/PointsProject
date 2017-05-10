@@ -10,6 +10,7 @@ namespace PointsProject.Models
     {
         //public DbSet<User> Users { get; set; }
         public DbSet<Auction> Auctions { get; set; }
+        
 
         static Context()
         {

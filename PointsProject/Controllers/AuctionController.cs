@@ -54,7 +54,7 @@ namespace PointsProject.Controllers
         }
         // GET: Auction
         public ActionResult Index()
-        {
+        {   
             var Auction = from e in GetAuctionsList()
                        orderby e.ItemID
                        select e;
