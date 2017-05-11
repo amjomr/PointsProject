@@ -7,6 +7,9 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using PointsProject.Models;
+using System.Data;
+using System.Data.SqlClient;
+using System.Xml;
 
 namespace PointsProject.Controllers
 {
@@ -34,9 +37,9 @@ namespace PointsProject.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -74,6 +77,22 @@ namespace PointsProject.Controllers
                 Logins = await UserManager.GetLoginsAsync(userId),
                 BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)
             };
+            SqlConnection sqlConnection1 = new SqlConnection("Data Source=isoptera.lcsc.edu,5197;Initial Catalog=pointsData;User ID=student;Password=P@ssw0rd;Encrypt=True;TrustServerCertificate=True");
+            SqlCommand cmd = new SqlCommand();
+            SqlDataReader reader;
+
+            cmd.CommandText = "SELECT * FROM checkIns";
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = sqlConnection1;
+
+            sqlConnection1.Open();
+
+            reader = cmd.ExecuteReader();
+            // Data is accessible through the DataReader object here.
+            //reader.Read();
+            sqlConnection1.Close();
+   
+
             return View(model);
         }
 
@@ -335,7 +354,7 @@ namespace PointsProject.Controllers
             base.Dispose(disposing);
         }
 
-#region Helpers
+        #region Helpers
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";
 
@@ -386,6 +405,6 @@ namespace PointsProject.Controllers
             Error
         }
 
-#endregion
+        #endregion
     }
 }
